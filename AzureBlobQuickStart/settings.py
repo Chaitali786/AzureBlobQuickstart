@@ -22,7 +22,8 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-n&2dtm#qn^6tz(_8ovgx7=t!o028-qgsy5z3n@qr*(c!d@31&p'
+SECRET_KEY = 'MY_SECRET_KEY'
+#SECRET_KEY = 'django-insecure-n&2dtm#qn^6tz(_8ovgx7=t!o028-qgsy5z3n@qr*(c!d@31&p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -44,6 +45,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # Add whitenoise middleware after the security middleware
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
