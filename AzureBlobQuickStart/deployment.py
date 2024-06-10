@@ -1,13 +1,12 @@
 from .settings import *
 import os
-
 from .settings import BASE_DIR 
 # Configure the domain name using the environment variable
 # that Azure automatically creates for us.
 #ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME']] if 'WEBSITE_HOSTNAME' in os.environ else []
 ALLOWED_Hosts = [os.environ['WEBSITE_HOSTNAME']] 
 CSRF_TRUSTED_ORIGIN = ['https://' + os.environ['WEBSITE_HOSTNAME']]
-DEBUG = True 
+DEBUG = False 
 
 SECRET_KEY = os.environ['MY_SECRET_KEY']     #make sure that you create this key into Azure Portal 
 
@@ -33,6 +32,7 @@ STORAGES = {
 CONNECTION = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
 
 CONNECTION_STR = {pair.split('=')[0]:pair.split('=')[1] for pair in CONNECTION.split('')}
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
                                                                                      
 DATABASES = {
     "default": {
@@ -43,5 +43,5 @@ DATABASES = {
         "PASSWORD": CONNECTION_STR['password'],
                    }
     }
-STATIC_ROOT = BASE_DIR/'staticfiles'
+
 
