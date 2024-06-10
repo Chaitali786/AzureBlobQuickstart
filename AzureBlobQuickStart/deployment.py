@@ -29,7 +29,7 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
-CONNECTION = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
+
 
 CONNECTION_STR = {pair.split('=')[0]:pair.split('=')[1] for pair in CONNECTION.split('')}
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -44,4 +44,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
        #            }
     #}
 
-
+#CONNECTION = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
