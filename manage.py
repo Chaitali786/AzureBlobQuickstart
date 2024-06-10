@@ -7,7 +7,7 @@ import sys
 def main():
     """Run administrative tasks."""
     
-    settings_module = 'AzureBlobQuickStart.production' if 'WEBSITE_HOSTNAME' in os.environ else 'AzureBlobQuickStart.settings'
+    settings_module = 'AzureBlobQuickStart.deployment' if 'WEBSITE_HOSTNAME' in os.environ else 'AzureBlobQuickStart.settings'
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
 
     try:
